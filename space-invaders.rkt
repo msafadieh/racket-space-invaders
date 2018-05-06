@@ -2,8 +2,8 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-(define WIDTH 10) ; # of blocks, horizontally 
-(define SIZE 50) ; blocks are squares
+(define WIDTH 10)
+(define SIZE 50)
 (define SCENE-SIZE (* WIDTH SIZE))
 
 (define landscape
@@ -35,7 +35,7 @@
 (define place-shooter
   (lambda (s l)
     (if (shooter-shooting? s)
-        (place-image laser-beam (* SIZE (- (shooter-x s) 1/2)) (- (/ (* 9 SCENE-SIZE) 20) 0) ;(/ SCENE-SIZE 20))
+        (place-image laser-beam (* SIZE (- (shooter-x s) 1/2)) (- (/ (* 9 SCENE-SIZE) 20) 0)
                      (place-image shooter-img (* SIZE (- (shooter-x s) 1/2)) (* SIZE (- 10 1/2)) l))
         (place-image shooter-img (* SIZE (- (shooter-x s) 1/2)) (* SIZE (- 10 1/2)) l))))
 
