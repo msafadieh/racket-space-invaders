@@ -3,10 +3,10 @@ A small, basic space invaders clone built using the Racket language.
 
 ## Screenshots
 
-<div>
+<p align="center">
     <img src="screenshots/Launcher.png" alt="Launcher" width="400" height="420">
     <img src="screenshots/Game.png" alt="Game" width="400" height="414">
-</div>
+</p>
 
 ## Installation:
 
