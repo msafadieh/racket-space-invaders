@@ -27,7 +27,7 @@
 (define-struct attacker (x y color))
 (define-struct game (s a paused?))
 
-(define shooter-img (triangle SIZE 'solid 'gray)) ;(bitmap icons/ship.png))
+(define shooter-img (triangle SIZE 'solid 'gray))
 
 (define laser-beam
     (rectangle (/ SIZE 4) (/ (* 8 SCENE-SIZE) 10) 'solid 'red))
@@ -103,13 +103,14 @@
                  (place-image (text (get-score g) 35 "green")
                               (/ SCENE-SIZE 2) (/ SCENE-SIZE 3/2) landscape))))
 
-(define (game-main g r)
-  (big-bang g
-    [name "Space Invaders"]
-    [to-draw render]
-    [on-tick move-attacker r]
-    [stop-when lost? lost]
-    [on-key move-shooter]))
+(define game-main 
+  (lambda (g r)
+    (big-bang g
+      [name "Space Invaders"]
+      [to-draw render]
+      [on-tick move-attacker r]
+      [stop-when lost? lost]
+      [on-key move-shooter])))
 
 (define start-game
   (lambda (r)
@@ -122,10 +123,11 @@
       [(key=? k "m") (start-game 0.3)]
       [(key=? k "h") (start-game 0.2)])))
 
-(define (start g)
-  (place-image (text "PRESS E FOR EASY" 25 "white") 150 50
-               (place-image (text "PRESS M FOR MEDIUM" 25 "white") 150 150
-                            (place-image (text "PRESS H FOR HARD" 25 "white") 150 250 landscape0))))
+(define start 
+  (lambda (g)
+    (place-image (text "PRESS E FOR EASY" 25 "white") 150 50
+                (place-image (text "PRESS M FOR MEDIUM" 25 "white") 150 150
+                              (place-image (text "PRESS H FOR HARD" 25 "white") 150 250 landscape0)))))
 
 (define main
   (lambda (g)
