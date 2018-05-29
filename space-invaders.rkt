@@ -20,7 +20,7 @@
 
 (define random-color
   (lambda ()
-    (let ((r (random 5)))
+    (let ((r (random (vector-length colors))))
       (vector-ref colors r))))
 
 (define-struct shooter (x score shooting?))
